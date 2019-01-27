@@ -7,8 +7,8 @@ end
 
 #POST
 post "/tools" do
-  @tool = Tool.new(params[:tool])
-  redirect "/tools/:id"
+  @tool = Tool.create(params[:tool])
+  redirect "/tools/#{@tool.id}"
 end
 
 # SHOW
