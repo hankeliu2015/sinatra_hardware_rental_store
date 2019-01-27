@@ -23,7 +23,18 @@ get "/tools" do
   erb :"/tools/index"
 end
 
+#EDIT
+get "/tools/:id/edit" do
+  @tool = Tool.find(params[:id])
+  erb :"/tools/edit"
+end
 
+#PATCH
+patch "/tools/:id" do
+  @tool = Tool.find(params[:id])
+  @tool.update(params[:tool])
+  redirect "/tools/#{@tool.id}"
+end
 
 
 

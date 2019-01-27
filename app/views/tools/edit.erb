@@ -1,0 +1,13 @@
+<h3>Please Edit the Tool Rental Form and Update</h3>
+
+<form class="" action="/tools/<%= @tool.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <p>Tool Name: <input type="text" name="tool[name]" value="<%= @tool.name %>"></p>
+  <p>Quantiry: <input type="text" name="tool[quantity]" value="<%= @tool.quantity %>"></p>
+  <p>Rental Date: <input type="text" name="tool[rental_date]" value="<%= @tool.rental_date %>"></p>
+  <p>Return Date: <input type="text" name="tool[return_date]" value="<%= @tool.return_date %>"></p>
+  <p>Cost Per Day: <input type="text" name="tool[cost_per_day]" value="<%= @tool.cost_per_day %>"></p>
+  <p>Conditions: <input type="text" name="tool[conditions]" value="<%= @tool.conditions %>"></p>
+  <input type="submit" name="" value="Update">
+
+</form>
