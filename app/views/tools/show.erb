@@ -8,3 +8,15 @@
 <p>Return Date: <%= @tool.return_date %></p>
 <p>Cost Per Day: <%= @tool.cost_per_day %></p>
 <p>Tool Conditions: <%= @tool.conditions %></p>
+
+<!-- <a href="/tools/<%#= @tool.id %>/edit">Edit</a> Edit link-->
+
+<form class="" action="/tools/<%= @tool.id %>/edit" method="get">
+  <input type="submit" name="" value="Edit">
+</form>
+
+
+<form class="" action="/tools/<%= @tool.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" name="" value="Delete">
+</form>
