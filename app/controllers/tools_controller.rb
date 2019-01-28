@@ -19,7 +19,7 @@ class ToolsController < ApplicationController
 
   #INDEX
   get "/tools" do
-    if session[:customer_id]
+    if logged_in?               # use helper methos instead of session[:customer_id]
       @tools = Tool.all
       erb :"/tools/index"
     else
