@@ -6,7 +6,14 @@ class SessionsController < ApplicationController
   end
 
   post "/login" do
-    binding.pry
+    @customer = Customer.find_by(username: params[:username])
+    if @customer && @customer.authenticate(params[:password])
+      redirect :"/tools"
+    else
+      redirect "/login"
+    end 
   end
+
+
 
 end #end of class
