@@ -19,9 +19,12 @@ class ToolsController < ApplicationController
 
   #INDEX
   get "/tools" do
-    @tools = Tool.all
-    erb :"/tools/index"
-
+    if session[:customer_id]
+      @tools = Tool.all
+      erb :"/tools/index"
+    else
+      redirect "/login"
+    end
   end
 
   #EDIT
