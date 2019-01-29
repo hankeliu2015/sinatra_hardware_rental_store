@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   post "/login" do
-    @customer = Customer.find_by(username: params[:username])
+    @customer = Customer.find_by_username_or_email(params[:username_email])
     if @customer && @customer.authenticate(params[:password])
       session[:customer_id] = @customer.id
 
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       redirect :"/tools"
 
     else
-      redirect "/login"
+      redirect "/login" #add falsh message
     end
   end
 

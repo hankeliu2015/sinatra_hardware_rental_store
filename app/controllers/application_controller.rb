@@ -17,6 +17,10 @@ class ApplicationController < Sinatra::Base
     def logged_in?
       session[:customer_id]
     end
+
+    def current_user
+      @customer ||= Customer.find_by(id: session[:customer_id]) if session[:customer_id]
+    end
   end
 
 end
