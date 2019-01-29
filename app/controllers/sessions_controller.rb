@@ -1,3 +1,4 @@
+
 class SessionsController < ApplicationController
 
   get "/login" do
@@ -14,6 +15,7 @@ class SessionsController < ApplicationController
       redirect :"/tools"
 
     else
+      # flash.now[:error] = "Your user name or password is incorrect, please try again."
       redirect "/login" #add falsh message
     end
   end
