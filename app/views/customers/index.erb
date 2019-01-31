@@ -1,0 +1,8 @@
+<h3>Customer Index - Henry's Hardware Rental</h3>
+
+<% @customers.each do |customer| %>
+<h3><a href="/customers/<%= customer.id %>"><%= customer.name %></a></h3>
+<p>User Name: <%= customer.username %></p>
+<p>Email: <%= customer.email %></p>
+
+<% end %>
