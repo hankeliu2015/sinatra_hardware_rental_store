@@ -6,13 +6,15 @@ class CustomerController < ApplicationController
 
   #POST
   post "/customers" do
-    @customer = Tool.create(params[:customer])
+    @customer = Customer.create(params[:customer])
     redirect "/customers/#{@customer.id}"
   end
 
   # SHOW
   get "/customers/:id" do
     @customer = Customer.find(params[:id])
+    @tools = @customer.tools
+    #binding.pry
     erb :"/customers/show"
   end
 

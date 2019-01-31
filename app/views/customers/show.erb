@@ -1,0 +1,16 @@
+
+<h3>Customer Info and Rental List</h3>
+
+<p>User Name: <%= @customer.username %></p>
+
+<h3>Tools Rented</h3>
+
+<%= @tools.each do |tool| %>
+  <p>Name: <%= tool.name %></p>
+  <p>Quantity: <%= tool.quantity %></p>
+  <p>Rental Date: <%= tool.rental_date %></p>
+  <p>Return Date: <%= tool.return_date %></p>
+  <p>Cost Per Day: <%= tool.cost_per_day %></p>
+  <p>Tool conditions: <%= tool.conditions %></p>
+
+<% end %>
