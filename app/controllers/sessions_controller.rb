@@ -1,12 +1,12 @@
-
+require 'rack-flash'
 class SessionsController < ApplicationController
+  use Rack::Flash
 
   get "/login" do
 
     erb :"/sessions/login"
   end
 
-  #flash[:notice] = "Your user name or password is incorrect, please try again."
 
   post "/login" do
     @customer = Customer.find_by_username_or_email(params[:username_email])
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       redirect :"/tools"
 
     else
-      #binding.pry
+      flash[:message] = "Your user name or password is incorrect, please try again."
       redirect "/login" #add falsh message
     end
   end
