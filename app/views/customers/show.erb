@@ -2,21 +2,21 @@
 <h3>Customer Info and Rental List</h3>
 
 <p>User Name: <%= @customer.username %></p>
+<p>Customer ID number: <%= @customer.id %></p>
 
 <h3>Tools Rented</h3>
 
-<% Tool.all.each do |tool| %>
+<% @tools.each do |tool| %>
 
   <% if tool.customer_id == session[:customer_id] %>
 
-    <p>Name: <%= tool.name %></p>
+    <h3>Tool Name: <%= tool.name %></h3>
     <p>Quantity: <%= tool.quantity %></p>
     <p>Rental Date: <%= tool.rental_date %></p>
     <p>Return Date: <%= tool.return_date %></p>
     <p>Cost Per Day: <%= tool.cost_per_day %></p>
     <p>Tool conditions: <%= tool.conditions %></p>
     <p>Customer ID: <%= tool.customer_id %></p>
-
 
   <% end %>
 

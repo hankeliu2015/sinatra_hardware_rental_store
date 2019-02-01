@@ -13,10 +13,14 @@ class CustomerController < ApplicationController
 
   # SHOW
   get "/customers/:id" do
+    #need a condition here: id == session[customer_id] to secure the customer access.
     @customer = Customer.find(params[:id])
-    @tools = @customer.tools
-    #binding.pry
-    erb :"/customers/show"
+    if session[:customer_id] == @customer.id
+      @tools = @customer.tools
+      erb :"/customers/show"
+    else
+      redirect "/login"
+    end
   end
 
   #INDEX
