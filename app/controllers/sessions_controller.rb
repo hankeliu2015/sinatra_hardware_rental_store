@@ -13,8 +13,7 @@ class SessionsController < ApplicationController
     if @customer && @customer.authenticate(params[:password])
       session[:customer_id] = @customer.id
 
-
-      redirect :"/tools"
+      redirect :"/customers/#{@customer.id}"
 
     else
       flash[:message] = "Your user name or password is incorrect, please try again."

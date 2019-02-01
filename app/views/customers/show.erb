@@ -1,10 +1,10 @@
 
-<h3>Customer Info and Rental List</h3>
+<h3>Hello <%= @customer.username %>! here is your account info and Tools list</h3>
 
 <p>User Name: <%= @customer.username %></p>
 <p>Customer ID number: <%= @customer.id %></p>
 
-<h3>Tools Rented</h3>
+<h3>Tools List: </h3>
 
 <% @tools.each do |tool| %>
 
