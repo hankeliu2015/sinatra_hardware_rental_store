@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
 
   post "/login" do
-    @customer = Customer.find_by_username_or_email(params[:username_email])
+    @customer = Customer.find_by_username_or_email(params[:username_or_email]) #method in Customer class
     if @customer && @customer.authenticate(params[:password])
       session[:customer_id] = @customer.id
 
