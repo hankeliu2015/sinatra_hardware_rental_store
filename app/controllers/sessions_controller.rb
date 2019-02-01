@@ -22,6 +22,9 @@ class SessionsController < ApplicationController
     end
   end
 
-
+  get '/sessions/logout' do
+    session.clear
+    redirect "/"
+  end
 
 end #end of class

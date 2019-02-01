@@ -4,9 +4,10 @@ class CustomerController < ApplicationController
     erb :"customers/new"
   end
 
-  #POST
+  #POST -- customer registrations
   post "/customers" do
     @customer = Customer.create(params[:customer])
+    session[:id] = @customer.id
     redirect "/customers/#{@customer.id}"
   end
 
