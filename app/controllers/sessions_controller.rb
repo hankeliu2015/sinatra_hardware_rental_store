@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       redirect :"/tools"
 
     else
-      binding.pry
+      #binding.pry
       redirect "/login" #add falsh message
     end
   end
