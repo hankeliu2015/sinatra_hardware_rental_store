@@ -8,6 +8,9 @@ class ToolsController < ApplicationController
   #POST
   post "/tools" do
     @tool = Tool.create(params[:tool])
+    #add session[:customer_id] as @tool.customer_id
+    @tool.customer_id = session[:customer_id]
+    @tool.save
     redirect "/tools/#{@tool.id}"
   end
 
@@ -17,7 +20,7 @@ class ToolsController < ApplicationController
     erb :"/tools/show"
   end
 
-  #INDEX
+  #INDEX (only display where session[:customer_id] match tools foreign key)
   get "/tools" do
     if logged_in?               # use helper methos instead of session[:customer_id]
       @tools = Tool.all

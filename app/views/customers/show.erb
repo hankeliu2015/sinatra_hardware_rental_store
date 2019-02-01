@@ -5,12 +5,19 @@
 
 <h3>Tools Rented</h3>
 
-<% @tools.each do |tool| %>
-  <p>Name: <%= tool.name %></p>
-  <p>Quantity: <%= tool.quantity %></p>
-  <p>Rental Date: <%= tool.rental_date %></p>
-  <p>Return Date: <%= tool.return_date %></p>
-  <p>Cost Per Day: <%= tool.cost_per_day %></p>
-  <p>Tool conditions: <%= tool.conditions %></p>
+<% Tool.all.each do |tool| %>
+
+  <% if tool.customer_id == session[:customer_id] %>
+
+    <p>Name: <%= tool.name %></p>
+    <p>Quantity: <%= tool.quantity %></p>
+    <p>Rental Date: <%= tool.rental_date %></p>
+    <p>Return Date: <%= tool.return_date %></p>
+    <p>Cost Per Day: <%= tool.cost_per_day %></p>
+    <p>Tool conditions: <%= tool.conditions %></p>
+    <p>Customer ID: <%= tool.customer_id %></p>
+
+
+  <% end %>
 
 <% end %>
