@@ -22,7 +22,7 @@ class ToolsController < ApplicationController
       #binding.pry
       erb :"/tools/show"
     else
-    redirect "/customers/#{self.logged_in?}" #redirect back to customer's own home page
+    redirect "/customers/#{current_user.id}" #redirect back to customer's own home page
     end
 
   end
