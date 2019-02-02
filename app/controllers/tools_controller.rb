@@ -16,8 +16,15 @@ class ToolsController < ApplicationController
 
   # SHOW
   get "/tools/:id" do
+
     @tool = Tool.find(params[:id])
-    erb :"/tools/show"
+    if @tool.customer_id == logged_in? #session customer_id the same as tool customer id
+      #binding.pry
+      erb :"/tools/show"
+    else
+    redirect "/customers/#{self.logged_in?}" #redirect back to customer's own home page
+    end
+
   end
 
   #INDEX (only display where session[:customer_id] match tools foreign key)
