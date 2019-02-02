@@ -1,8 +1,10 @@
 
 <h3>Hello <%= current_user.username %>! here is your account info and Tools list</h3>
 
-<p>User Name: <%= @customer.username %></p>
-<p>Customer ID number: <%= @customer.id %></p>
+<ul>
+  <li>User Name: <%= @customer.username %><li>
+  <li>Customer ID: <%= @customer.id %></li>
+</ul>
 
 <h3>Tools List: </h3>
 
@@ -17,6 +19,12 @@
     <p>Cost Per Day: <%= tool.cost_per_day %></p>
     <p>Tool conditions: <%= tool.conditions %></p>
     <p>Customer ID: <%= tool.customer_id %></p>
+    <a href="/tools/<%="#{tool.id}/edit"%>">Edit</a>
+
+    <form class="" action="/tools/<%="#{tool.id}"%>" method="post">
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <input type="submit" name="" value="Delete">
+    </form>
 
   <% end %>
 
