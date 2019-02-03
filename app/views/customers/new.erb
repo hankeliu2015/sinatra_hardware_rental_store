@@ -1,5 +1,9 @@
 <h3>New Account Register</h3>
 
+<% if !!@error_message %>
+  <p><%= @error_message %></p>
+<% end %>
+
 <form class="" action="/customers" method="post">
   <p>User Name: <input type="text" name="customer[username]" value=""></p>
   <p>Email Address: <input type="text" name="customer[email]" value=""></p>

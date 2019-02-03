@@ -7,8 +7,15 @@ class CustomerController < ApplicationController
   #POST -- customer registrations
   post "/customers" do
     @customer = Customer.create(params[:customer])
-    session[:id] = @customer.id
-    redirect "/customers/#{@customer.id}"
+
+    if @customer.valid?
+      session[:id] = @customer.id
+      redirect "/customers/#{@customer.id}"
+    else
+      @error_message = @customer.errors.full_messages
+                #binding.pry
+      erb :"/customers/new"
+    end
   end
 
   # SHOW

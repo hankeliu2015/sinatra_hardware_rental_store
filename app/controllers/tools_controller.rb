@@ -55,7 +55,7 @@ class ToolsController < ApplicationController
   delete "/tools/:id" do
     @tool = Tool.find(params[:id])
     @tool.destroy
-    redirect "/tools"
+    redirect "/customers/#{current_user.id}"  # change from redirect "/tools" to show customer's home page.
   end
 
 
