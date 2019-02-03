@@ -19,12 +19,19 @@
     <p>Cost Per Day: <%= tool.cost_per_day %></p>
     <p>Tool conditions: <%= tool.conditions %></p>
     <p>Customer ID: <%= tool.customer_id %></p>
-    <a href="/tools/<%="#{tool.id}/edit"%>">Edit</a>
 
-    <form class="" action="/tools/<%="#{tool.id}"%>" method="post">
-      <input id="hidden" type="hidden" name="_method" value="delete">
-      <input type="submit" name="" value="Delete">
-    </form>
+
+    <a href="/tools/new">Add Tool</a>
+    <a href="/tools/<%="#{tool.id}/edit"%>">Edit Tool</a>
+
+    <div class="">
+      <form class="" action="/tools/<%="#{tool.id}"%>" method="post">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <input type="submit" name="" value="Delete">
+      </form>
+    </div>
+
+
 
   <% end %>
 
