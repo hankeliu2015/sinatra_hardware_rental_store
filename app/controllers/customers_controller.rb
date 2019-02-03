@@ -12,7 +12,7 @@ class CustomerController < ApplicationController
       session[:id] = @customer.id
       redirect "/customers/#{@customer.id}"
     else
-      @error_message = @customer.errors.full_messages
+      @error_message = @customer.errors.full_messages.join(" and ")
                 #binding.pry
       erb :"/customers/new"
     end
