@@ -25,13 +25,11 @@
     <a href="/tools/<%="#{tool.id}/edit"%>">Edit Tool</a>
 
     <div class="">
-      <form class="" action="/tools/<%="#{tool.id}"%>" method="post">
+      <form onsubmit="confirm('Are you sure you want to delete the following note?')" class="" action="/tools/<%="#{tool.id}"%>" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <input type="submit" name="" value="Delete">
       </form>
     </div>
-
-
 
   <% end %>
 
