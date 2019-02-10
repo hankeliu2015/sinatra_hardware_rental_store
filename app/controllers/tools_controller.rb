@@ -46,8 +46,9 @@ class ToolsController < ApplicationController
   get "/tools/:id/edit" do
     # validate user login.
     # Try AR associate Macro here.
-    if logged_in?
-      @tool = Tool.find(params[:id])
+    @tool = Tool.find(params[:id])
+
+    if logged_in? && @tool.customer_id == logged_in?
       erb :"/tools/edit"
     else
       redirect "/login"
