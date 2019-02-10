@@ -2,7 +2,11 @@ class ToolsController < ApplicationController
 
   #NEW
   get "/tools/new" do
-    erb :"tools/new"
+    if logged_in?
+      erb :"tools/new"
+    else
+      redirect "/login"
+    end
   end
 
   #POST
