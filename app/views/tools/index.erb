@@ -1,6 +1,10 @@
 
 <h3>Hello <%=current_user.username %>! Here a list of all emplyees' tools. You only can Edit or Delete your own tools</h3>
 
+<form class="" action="/customers/<%= current_user.id %>" method="get">
+  <input type="submit" name="" value="Back to <%= current_user.username %>'s Home Page">
+</form>
+
 
 <% @tools.each do |tool| %>
 <h3><a href="/tools/<%= tool.id %>"><%= tool.name %></a></h3>
