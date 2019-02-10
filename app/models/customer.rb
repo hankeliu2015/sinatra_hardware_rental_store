@@ -5,6 +5,7 @@ class Customer < ActiveRecord::Base
   validates :email, uniqueness: true, presence: true
 
   def self.find_by_username_or_email(username_or_email)
+    #raise params.inspect
     self.find_by(username: username_or_email) || self.find_by(email: username_or_email)
   end
 end

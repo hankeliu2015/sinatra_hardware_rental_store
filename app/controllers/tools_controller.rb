@@ -7,10 +7,14 @@ class ToolsController < ApplicationController
 
   #POST
   post "/tools" do
-    @tool = Tool.create(params[:tool])
-    #add session[:customer_id] as @tool.customer_id
-    @tool.customer_id = session[:customer_id]
-    @tool.save
+
+    @customer = Customer.find(session[:customer_id]) # AR association Macro
+    @tool = @customer.tools.create(params[:tool])
+
+    # @tool = Tool.create(params[:tool])
+    # @tool.customer_id = session[:customer_id]   #add session[:customer_id] as @tool.customer_id
+    # @tool.save
+
     redirect "/tools/#{@tool.id}"
   end
 
@@ -18,6 +22,7 @@ class ToolsController < ApplicationController
   get "/tools/:id" do
 
     @tool = Tool.find(params[:id])
+
     if @tool.customer_id == logged_in? #session customer_id the same as tool customer id
       #binding.pry
       erb :"/tools/show"
@@ -39,8 +44,14 @@ class ToolsController < ApplicationController
 
   #EDIT
   get "/tools/:id/edit" do
-    @tool = Tool.find(params[:id])
-    erb :"/tools/edit"
+    # validate user login.
+    # Try AR associate Macro here.
+    if logged_in?
+      @tool = Tool.find(params[:id])
+      erb :"/tools/edit"
+    else
+      redirect "/login"
+    end
   end
 
   #PATCH
