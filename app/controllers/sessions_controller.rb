@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
 
 end #end of class
 
-# 
+# Flash message moved away from sessions$login 
 # <%=# if flash.has?(:message) %>
 # <p><%=# flash[:message] %></p>
 # <%=# end %>

@@ -76,7 +76,8 @@ class ToolsController < ApplicationController
     @tool = Tool.find(params[:id])
 
     if logged_in? && @tool.customer_id == logged_in?
-      @tool.destroy
+      #@tool.destroy
+      current_user.tools.destroy(@tool)
       redirect "/customers/#{current_user.id}"  # change from redirect "/tools" to show customer's home page.
     else
       redirect "/login"
