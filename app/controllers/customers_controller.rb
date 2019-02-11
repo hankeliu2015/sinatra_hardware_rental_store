@@ -49,8 +49,12 @@ class CustomerController < ApplicationController
   #PATCH
   patch "/customers/:id" do
     @customer = Customer.find(params[:id])
-    @customer.update(params[:customer])
-    redirect "/customers/#{@customer.id}"
+    if logged_in? && logged_in? == @customer.id
+      @customer.update(params[:customer])
+      redirect "/customers/#{@customer.id}"
+    else
+      redirect "/login"
+    end
   end
 
   #DELETE

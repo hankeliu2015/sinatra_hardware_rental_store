@@ -1,0 +1,10 @@
+<h3>Welcome <%= @customer.username %>, please update your login account information</h3>
+
+<form class="" action="/customers/<%= @customer.id %>" method="post">
+
+  <input type="hidden" id="hidden" name="_method" value="patch">
+  <input type="text" name="customer[username]" value="<%= @customer.username%>">
+  <input type="text" name="customer[email]" value="<%= @customer.email%>">
+  <input type="submit" name="" value="Update Customer Account">
+
+</form>
