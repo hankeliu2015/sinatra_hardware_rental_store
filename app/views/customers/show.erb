@@ -1,5 +1,7 @@
 
-<h3>Hello <%= current_user.username %>! here is your account info and Tools list</h3>
+
+<h3>Hello <%= current_user.username %>! Welcome to your account</h3>
+<img src="images/toolscollection2.png">
 
 <ul>
   <li>User Name: <%= @customer.username %><li>
@@ -8,7 +10,7 @@
   <form class="" action="/customers/<%= @customer.id %>/edit" method="get">
     <input type="submit" name="" value="Edit My Account Info">
   </form>
-  
+
   <br>
 
   <form class="" action="/tools/new" method="get">

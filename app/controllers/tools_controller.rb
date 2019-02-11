@@ -12,8 +12,9 @@ class ToolsController < ApplicationController
   #POST
   post "/tools" do
 
-    @customer = Customer.find(session[:customer_id]) # AR association Macro
-    @tool = @customer.tools.create(params[:tool])
+    #@customer = Customer.find(session[:customer_id]) # AR association Macro
+    #@tool = @customer.tools.create(params[:tool])
+    @tool = current_user.tools.create(params[:tool])
 
     # @tool = Tool.create(params[:tool])
     # @tool.customer_id = session[:customer_id]   #add session[:customer_id] as @tool.customer_id
