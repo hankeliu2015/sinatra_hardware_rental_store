@@ -27,3 +27,8 @@ class SessionsController < ApplicationController
   end
 
 end #end of class
+
+# 
+# <%=# if flash.has?(:message) %>
+# <p><%=# flash[:message] %></p>
+# <%=# end %>

@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    redirect "login"  #erb :welcome
   end
 
 
@@ -24,7 +24,7 @@ class ApplicationController < Sinatra::Base
     def current_user
       @customer ||= Customer.find_by(id: session[:customer_id]) if session[:customer_id]
     end
-    
+
   end
 
 end #end of class
