@@ -5,8 +5,14 @@
   <li>User Name: <%= @customer.username %><li>
   <li>Customer ID: <%= @customer.id %></li><br>
 
+  <form class="" action="/customers/<%= @customer.id %>/edit" method="get">
+    <input type="submit" name="" value="Edit My Account Info">
+  </form>
+  
+  <br>
+
   <form class="" action="/tools/new" method="get">
-    <input type="submit" name="" value="Add New Tool">
+    <input type="submit" name="" value="Add a New Tool">
   </form>
 </ul>
 
